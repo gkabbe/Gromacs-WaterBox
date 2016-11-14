@@ -143,15 +143,15 @@ sa-surface-tension       = -1
 
 ; OPTIONS FOR WEAK COUPLING ALGORITHMS
 ; Temperature coupling  
-Tcoupl                   = v-rescale
+Tcoupl                   = nose-hoover
 nsttcouple               = -1
 nh-chain-length          = 10
 print-nose-hoover-chain-variables = no
 ; Groups to couple separately
 tc-grps                  = System
 ; Time constant (ps) and reference temperature (K)
-tau_t                    = 0.1
-ref_t                    = 300
+tau_t                    = 0.5
+ref_t                    = 300.0
 ; pressure coupling     
 pcoupl		             = berendsen	    ; Pressure coupling on in NPT
 pcoupltype	             = isotropic	            ; uniform scaling of box vectors
