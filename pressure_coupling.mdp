@@ -159,7 +159,7 @@ tc-grps                  = System
 tau_t                    = 0.1
 ref_t                    = 350
 ; pressure coupling     
-pcoupl		             = Parrinello-Rahman	    ; Pressure coupling on in NPT
+pcoupl		             = berendsen	    ; Pressure coupling on in NPT
 pcoupltype	             = isotropic	            ; uniform scaling of box vectors
 tau_p		             = 2.0		            ; time constant, in ps
 ref_p		             = 1.0		            ; reference pressure, in bar
