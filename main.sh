@@ -19,3 +19,9 @@ gmx grompp -v -f equilibration.mdp -c energy_minimization.gro -p topol.top -o nv
 
 # Start the equilibration
 gmx mdrun -v -deffnm nvt
+
+# Create run file for equilibration with pressure coupling
+gmx grompp -v -f pressure_coupling.mdp -c nvt.gro -t nvt.cpt -p topol.top -o npt.tpr
+
+# Optimize box size
+gmx mdrun -v -deffnm npt
