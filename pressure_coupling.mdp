@@ -205,7 +205,7 @@ annealing-time           =
 annealing-temp           = 
 
 ; GENERATE VELOCITIES FOR STARTUP RUN
-gen_vel                  = yes
+gen_vel                  = no
 gen_temp                 = 350
 gen_seed                 = 1993
 
@@ -214,7 +214,7 @@ constraints              = none
 ; Type of constraint algorithm
 constraint-algorithm     = Lincs
 ; Do not constrain the start configuration
-continuation             = no
+continuation             = yes
 ; Use successive overrelaxation to reduce the number of shake iterations
 Shake-SOR                = no
 ; Relative tolerance of shake
