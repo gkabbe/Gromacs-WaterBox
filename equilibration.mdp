@@ -157,7 +157,7 @@ print-nose-hoover-chain-variables = no
 tc-grps                  = System
 ; Time constant (ps) and reference temperature (K)
 tau_t                    = 0.1
-ref_t                    = 300
+ref_t                    = 350
 ; pressure coupling     
 pcoupl                   = No
 pcoupltype               = Isotropic
@@ -209,7 +209,7 @@ annealing-temp           =
 
 ; GENERATE VELOCITIES FOR STARTUP RUN
 gen_vel                  = yes
-gen_temp                 = 300
+gen_temp                 = 350
 gen_seed                 = 1993
 
 ; OPTIONS FOR BONDS    
