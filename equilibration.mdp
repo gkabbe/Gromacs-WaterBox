@@ -51,7 +51,7 @@ rtpi                     = 0.05
 
 ; OUTPUT CONTROL OPTIONS
 ; Output frequency for coords (x), velocities (v) and forces (f)
-nstxout                  = 0
+nstxout                  = 100
 nstvout                  = 0
 nstfout                  = 0
 ; Output frequency for energies to log file and energy file
