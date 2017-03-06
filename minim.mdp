@@ -8,10 +8,45 @@ nsteps		= 50000	  	; Maximum number of (minimization) steps to perform
 nstlist		    = 100	    ; Frequency to update the neighbor list and long range forces
 cutoff-scheme   = Verlet
 ns_type		    = grid		; Method to determine neighbor list (simple, grid)
-coulombtype	    = PME		; Treatment of long range electrostatic interactions
-rcoulomb	    = 0.1		; Short-range electrostatic cut-off
-rvdw		    = 0.1		; Short-range Van der Waals cut-off
+;coulombtype	    = PME		; Treatment of long range electrostatic interactions
+;rcoulomb	    = 0.1		; Short-range electrostatic cut-off
+;rvdw		    = 0.1		; Short-range Van der Waals cut-off
 rlist           = 0.1
 pbc		        = xyz 		; Periodic Boundary Conditions (yes/no)
 
-constraints = h-bonds
+constraints = none
+
+; OPTIONS FOR ELECTROSTATICS AND VDW
+; Method for doing electrostatics
+coulombtype              = pme
+coulomb-modifier         = Potential-shift
+rcoulomb-switch          = 0
+rcoulomb                 = 0.9
+; Relative dielectric constant for the medium and the reaction field
+epsilon-r                = 1
+epsilon-rf               = 0
+; Method for doing Van der Waals
+vdw-type                 = cut-off
+vdw-modifier             = Potential-shift
+; cut-off lengths       
+rvdw-switch              = 0
+rvdw                     = 0.9
+; Apply long range dispersion corrections for Energy and Pressure
+DispCorr                 = EnerPres
+; Extension of the potential lookup tables beyond the cut-off
+table-extension          = 1
+; Separate tables between energy group pairs
+energygrp-table          = 
+; Spacing for the PME/PPPM FFT grid
+fourierspacing           = 0.1
+; FFT grid size, when a value is 0 fourierspacing will be used
+fourier-nx               = 64
+fourier-ny               = 64
+fourier-nz               = 64
+; EWALD/PME/PPPM parameters
+pme_order                = 8
+ewald-rtol               = 1e-07
+ewald-rtol-lj            = 1e-05
+lj-pme-comb-rule         = Geometric
+ewald-geometry           = 3d
+epsilon-surface          = 0

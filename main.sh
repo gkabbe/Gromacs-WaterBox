@@ -3,10 +3,10 @@
 git clean -f
 
 # Create box with box lengths 4 x 4 x 4 nm^3
-gmx solvate -box 4 4 4 -o water_neutral.gro
+gmx solvate -box 2 2 2 -o water_neutral.gro
 
 # Create topology file using the Amber force field
-gmx pdb2gmx -f water_neutral.gro -o water_neutral_processed.gro -water spce -ff "amber03"
+gmx pdb2gmx -f water_neutral.gro -o water_neutral_processed.gro -water tip4p -ff "amber03"
 
 # Create a run file for the energy minimization
 gmx grompp -f minim.mdp -c water_neutral_processed.gro -p topol.top -o energy_minimization.tpr
@@ -35,3 +35,8 @@ gmx grompp -v -f production_run.mdp -c nvt.gro -t nvt.cpt -p topol.top -o produc
 
 # Start production run
 gmx mdrun -v -deffnm production
+
+
+# Convert trajectory to pdb
+gmx trjconv -f production.trr -s production.tpr -pbc nojump -o out.pdb
+babel -i pdb out.pdb -o xyz out.xyz
