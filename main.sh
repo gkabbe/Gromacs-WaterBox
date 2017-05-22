@@ -5,7 +5,7 @@ git clean -f
 # Create box with box lengths 4 x 4 x 4 nm^3
 gmx solvate -box 2 2 2 -o water_neutral.gro
 
-gmx editconf -f water_neutral.gro -bt cubic -box 19.1658141 -o water_neutral.gro
+gmx editconf -f water_neutral.gro -bt cubic -box 18.62017 -o water_neutral.gro
 
 # Create topology file using the Amber force field
 gmx pdb2gmx -f water_neutral.gro -o water_neutral_processed.gro -water tip4p -ff "amber03"
