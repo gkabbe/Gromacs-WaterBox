@@ -109,7 +109,7 @@ fourier-nx               = 64
 fourier-ny               = 64
 fourier-nz               = 64
 ; EWALD/PME/PPPM parameters
-pme_order                = 8
+pme_order                = 4
 ewald-rtol               = 1e-07
 ewald-rtol-lj            = 1e-05
 lj-pme-comb-rule         = Geometric
@@ -143,15 +143,15 @@ sa-surface-tension       = -1
 
 ; OPTIONS FOR WEAK COUPLING ALGORITHMS
 ; Temperature coupling  
-Tcoupl                   = no
+Tcoupl                   = nose-hoover
 nsttcouple               = -1
 nh-chain-length          = 10
 print-nose-hoover-chain-variables = no
 ; Groups to couple separately
 tc-grps                  = System
 ; Time constant (ps) and reference temperature (K)
-tau_t                    = 0.5
-ref_t                    = 300.0
+tau_t                    = 0.1
+ref_t                    = 350.0
 ; pressure coupling     
 pcoupl                   = No
 pcoupltype               = Isotropic
