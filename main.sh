@@ -3,7 +3,9 @@
 git clean -f
 
 # Create box with box lengths 2x2x2 nm^3
-gmx solvate -cs -box 2 2 2 -o water_neutral.gro
+gmx solvate -scale 0.5 -cs -box 1.8626 1.8626 1.8626 -o water_neutral.gro
+
+# gmx editconf -f water_neutral.gro -bt cubic -box 1.862017 -o water_neutral.gro
 
 # Create topology file using the Amber force field
 gmx pdb2gmx -f water_neutral.gro -o water_neutral_processed.gro -water tip4p -ff "amber03"
@@ -22,13 +24,13 @@ gmx mdrun -v -s input_nvt.tpr -deffnm nvt
 
 
 # Create run file for equilibration with pressure coupling
-gmx grompp -v -f pressure_coupling.mdp -c nvt.gro -t nvt.cpt -p topol.top -o input_npt.tpr
+#gmx grompp -v -f pressure_coupling.mdp -c nvt.gro -t nvt.cpt -p topol.top -o input_npt.tpr
 
 # Optimize box size
-gmx mdrun -v -s input_npt.tpr -deffnm npt
+#gmx mdrun -v -s input_npt.tpr -deffnm npt
 
-# Create run file for production run
-gmx grompp -v -f production_run.mdp -c npt.gro -t npt.cpt -p topol.top -o input_production.tpr
+ Create run file for production run
+gmx grompp -v -f production_run.mdp -c nvt.gro -t nvt.cpt -p topol.top -o input_production.tpr
 
 
 # Start production run
